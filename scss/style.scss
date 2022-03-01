@@ -1,0 +1,173 @@
+$light-cyan: hsl(193, 38%, 86%);
+$neon-green: hsl(150, 100%, 66%);
+$grayish-blue: hsl(217, 19%, 38%);
+$dark-grayish-blue: hsl(217, 19%, 24%);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $dark-grayish-blue;
+  display: flex;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+  font-family: "Manrope", sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  margin: -1px 0 0 -1px;
+  padding: 0;
+  display: block;
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  line-height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+}
+
+.advice {
+  max-width: 540px;
+  margin: auto;
+  background-color: lighten($dark-grayish-blue, 5%);
+  padding: 2em 3em 4em;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  opacity: 0;
+  transform: scale(0.5);
+
+  &.show {
+    transition: 0.8s ease-out;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__id {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: $neon-green;
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: 20px;
+    color: $light-cyan;
+    margin: 1em 0;
+    font-weight: 800;
+
+    @media screen and (min-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  &__button {
+    background-color: $neon-green;
+    border: 0;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transition: 0.5s ease-out;
+    transform: translate(-50%, 50%);
+
+    &:hover {
+      box-shadow: 0 0 20px 3px $neon-green;
+    }
+
+    img {
+      pointer-events: none;
+    }
+
+    &.spin {
+      transform: translate(-50%, 50%) rotate(360deg);
+    }
+  }
+
+  &__pattern-mobile {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__pattern-desktop {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+}
+
+.lds-ring {
+  display: none;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &.show {
+    display: inline-block;
+  }
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid $grayish-blue;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: $grayish-blue transparent transparent transparent;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.attribution {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  background-color: black;
+  color: #ccc;
+}

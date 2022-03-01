@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+    <title>Frontend Mentor | Advice generator app</title>
+  </head>
+  <body>
+    <div class="lds-ring spinner" aria-hidden="true">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <main class="advice">
+      <h1 class="sr-only">Advice Generator App</h1>
+      <div class="advice__id"></div>
+      <div class="advice__text"></div>
+      <img class="advice__pattern-mobile" src="images/pattern-divider-mobile.svg" alt="pattern divider" />
+      <img class="advice__pattern-desktop" src="images/pattern-divider-desktop.svg" alt="pattern divider" />
+      <!-- dice button -->
+      <button class="advice__button" id="advice-btn">
+        <img src="images/icon-dice.svg" alt="dice icon" />
+      </button>
+    </main>
+  </body>
+</html>
